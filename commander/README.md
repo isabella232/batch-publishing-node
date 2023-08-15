@@ -57,10 +57,37 @@ Create a params.json file with the following format:
 
 ```bash
 {
+    "versionName": "1.0.1",
+    "price": 4.99,
+    "category": "2D",
+    "metadatas": {
+        "en_US": {
+            "name": "Testing",
+            "releaseNotes": "Test, don't release.",
+            "summary": "This is summary.",
+            "technicalDetails": "This is technical details.",
+            "description": "This is description.",
+            "compatibilityInfo": "No compatibility issue."
+        }
+    },
+    "tags": [
+        "Test",
+        "OpenAPI",
+        "Example"
+    ],
+    "keyImages": {
+        "icon": "../data/unity_icon.png",
+        "card": "../data/unity_card.png",
+        "cover": "../data/unity_cover.png",
+        "social_media": "../data/unity_social_media.png"
+    },
+    "srps": ["urp"],
+    "dependencies": [],
     "unity_version": "2022.3.2f1",
     "file": "../data/openapi.unitypackage",
-    "packageVersion_id": 253066
-}
+    "packageVersion_id": 251463
+
+ }
 
 ```
 
