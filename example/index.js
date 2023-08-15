@@ -1,24 +1,24 @@
 'use strict';
 
 const publisherPortalLib = require('../lib');
-require('dotenv').config()
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
 async function main() {
 
-    var unity_version = "2020.3.6f1";
-    var file = "./data/openapi.unitypackage";
-    var packageVersion_id = 250770;
+    var unity_version = "2022.3.2f1";
+    var file = "../data/openapi.unitypackage";
+    var packageVersion_id = 253067;
     
     publisherPortalLib.setConfig(process.env.HOST)
 
     var keys = await publisherPortalLib.login(process.env.USERNAME, process.env.PASSWORD);
-    console.log(keys);
-    //await lib.getPackageVersion(keys, packageVersion_id)
-    //await lib.deleteDraftPackageVersion(keys, packageVersion_id)
+    await publisherPortalLib.getPackageVersion(keys, packageVersion_id)
+    //await publisherPortalLib.deleteDraftPackageVersion(keys, packageVersion_id)
 
-    //await lib.getPublisherLimits(keys)
-    //await lib.getCategoryList(keys)
-    //await lib.uploadUnityPackage(keys, file, packageVersion_id, unity_version)
+    //await publisherPortalLib.getPublisherLimits(keys)
+    //await publisherPortalLib.getCategoryList(keys)
+    await publisherPortalLib.uploadUnityPackage(keys, file, packageVersion_id, unity_version)
 }
 
 main()
